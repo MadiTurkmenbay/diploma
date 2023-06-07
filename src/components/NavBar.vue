@@ -15,8 +15,8 @@
                 <div class="section_one">
                     <router-link :to="{name: 'academy'}"><span>Академиялық саясат</span></router-link>
                     <router-link :to="{name: 'academy'}"><span>Академиялық адалдық</span> <span>ережелері</span></router-link>
-                    <router-link :to="{name: 'academy'}"><span>Қорытынды бақылау</span> <span>ережелері</span></router-link>
-                    <router-link :to="{name: 'academy'}"><span>Бейіндік емес пәндер</span></router-link>
+                    <router-link :to="{path: 'test'}"><span>Қорытынды бақылау</span> <span>ережелері</span></router-link>
+                    <router-link :to="{path: 'test'}"><span>Бейіндік емес пәндер</span></router-link>
                 </div>
             </div>
         </div>
@@ -26,37 +26,37 @@
             <div class="nav-overflow"></div>
             <div class="nav-wrapper">
                 <div class="section_one">
-                    <router-link :to="{name: 'main'}" ><span>Сауалнама жүргізу</span></router-link>
+                    <router-link :to="{path: 'test'}" ><span>Сауалнама жүргізу</span></router-link>
                     <router-link :to="{name: 'profile'}" ><span>Жеке мәліметтерді</span> <span>редакциялау</span></router-link>
-                    <router-link :to="{name: 'main'}" ><span>Тәжірибе</span></router-link>
-                    <router-link :to="{name: 'main'}" ><span>Келісім-шарттар</span></router-link>
+                    <router-link :to="{path: 'test'}" ><span>Тәжірибе</span></router-link>
+                    <router-link :to="{path: 'test'}" ><span>Келісім-шарттар</span></router-link>
                 </div>
                 <div class="section_one">
                     <router-link :to="{name: 'academy'}"><span>Академиялық күнтізбе</span></router-link>
                     <router-link :to="{name: 'schedule'}"><span>Кесте</span></router-link>
-                    <router-link :to="{name: 'academy'}"><span>Емтихандар кестесі</span></router-link>
-                    <router-link :to="{name: 'academy'}"><span>Midterm кестесі</span></router-link>
-                    <router-link :to="{name: 'academy'}"><span>Оқу жоспары</span></router-link>
-                    <router-link :to="{name: 'academy'}"><span>Аттестация</span></router-link>
-                    <router-link :to="{name: 'academy'}"><span>Қатысу және үлгерім</span> <span>журналы</span></router-link>
+                    <router-link :to="{name: 'exams'}"><span>Емтихандар кестесі</span></router-link>
+                    <router-link :to="{path: 'test'}"><span>Midterm кестесі</span></router-link>
+                    <router-link :to="{path: 'test'}"><span>Оқу жоспары</span></router-link>
+                    <router-link :to="{path: 'test'}"><span>Аттестация</span></router-link>
+                    <router-link :to="{path: 'test'}"><span>Қатысу және үлгерім</span> <span>журналы</span></router-link>
                 </div>
                 <div class="section_one">
-                    <router-link to="/" ><span>Эдвайзердің файлдары</span></router-link>
-                    <router-link to="/" ><span>Жеке оқу жоспары</span></router-link>
-                    <router-link to="/" ><span>Транскрипт</span></router-link>
-                    <router-link to="/" ><span>Сынақ кітапшасы</span></router-link>
-                    <router-link to="/" ><span>Студент анкетасы</span></router-link>
-                    <router-link to="/" ><span>ПОӘК</span></router-link>
-                    <router-link to="/" ><span>Рейтинг</span></router-link>
-                    <router-link to="/" ><span>Бітіру жұмыстарын</span> <span>жүктеу</span></router-link>
+                    <router-link to="/test" ><span>Эдвайзердің файлдары</span></router-link>
+                    <router-link to="/test" ><span>Жеке оқу жоспары</span></router-link>
+                    <router-link to="/test" ><span>Транскрипт</span></router-link>
+                    <router-link to="/test" ><span>Сынақ кітапшасы</span></router-link>
+                    <router-link to="/test" ><span>Студент анкетасы</span></router-link>
+                    <router-link to="/test" ><span>ПОӘК</span></router-link>
+                    <router-link to="/test" ><span>Рейтинг</span></router-link>
+                    <router-link to="/test" ><span>Бітіру жұмыстарын</span> <span>жүктеу</span></router-link>
                 </div>
                 <div class="section_one">
-                    <router-link to="/" ><span>Тестілеу түрі</span></router-link>
-                    <router-link to="/" ><span>Онлайн тест</span></router-link>
-                    <router-link to="/" ><span>Қашықтықтан оқыту</span> <span>курстары</span></router-link>
-                    <router-link to="/" ><span>Қарыз</span></router-link>
-                    <router-link to="/" ><span>Қайта тапсыру</span></router-link>
-                    <router-link to="/" ><span>GPA көтеру</span></router-link>
+                    <router-link to="/test" ><span>Тестілеу түрі</span></router-link>
+                    <router-link to="/test" ><span>Онлайн тест</span></router-link>
+                    <router-link to="/test" ><span>Қашықтықтан оқыту</span> <span>курстары</span></router-link>
+                    <router-link to="/test" ><span>Қарыз</span></router-link>
+                    <router-link to="/test" ><span>Қайта тапсыру</span></router-link>
+                    <router-link to="/test" ><span>GPA көтеру</span></router-link>
                 </div>
             </div>
         </div>

@@ -1,20 +1,20 @@
 <template>
     <section class="block1">
         <div class="container">
-            <div class="auth" :class="isAuth ? 'form' : ''">
-                <div v-if="isAuth" class="auth_form">
-                    <div class="h2">Авторизация</div>
-                    <p>Логин мен парольді еңгізіңіз</p>
+            <div class="auth" :class="switcher ? 'form' : ''">
+                <div v-if="switcher" class="auth_form">
+					<div class="h2">Авторизация</div>
+					<p>Логин мен парольді еңгізіңіз</p>
 
-                    <div class="form_item">
-                        <div class="label">Логин</div>
-                        <input type="text" placeholder="Логинді осы жерге еңгізіңіз">
-                    </div>
+					<div class="form_item" :class="{error: errors.get('username')}">
+						<div class="label">Логин</div>
+						<input type="text" v-model="loginForm.username" @keyup.enter="auth()" @change="errors.clear('username')"  placeholder="Логинді осы жерге еңгізіңіз">
+					</div>
 
-                    <div class="form_item">
-                        <div class="label">Пароль</div>
-                        <input type="text" placeholder="Парольді осы жерге еңгізіңіз">
-                    </div>
+					<div class="form_item" :class="{error: errors.get('password')}">
+						<div class="label">Пароль</div>
+						<input type="text" v-model="loginForm.password" @keyup.enter="auth()" @change="errors.clear('password')" placeholder="Парольді осы жерге еңгізіңіз">
+					</div>
                 </div>
 
                 <div v-else class="h1">
@@ -22,8 +22,9 @@
                 </div>
 
                 <div class="login_btn">
-                    <button @click="auth()">Кіру</button>
-                    <span v-if="!isAuth">Univer жүйесіне кіру</span>
+					<el-button @click="auth()" :loading="loading">Кіру</el-button>
+<!--                    <button >Кіру</button>-->
+                    <span v-if="!switcher">Campus жүйесіне кіру</span>
                 </div>
             </div>
         </div>
@@ -32,7 +33,7 @@
     <section class="block2">
         <div class="container">
             <div class="card">
-                <div class="title">Құрметті Univer 3.0 қолданушысы!</div>
+                <div class="title">Құрметті Campus 1.0 қолданушысы!</div>
 
                 <div class="question">
                     <div class="h2">Жүйеге кіру үшін логин мен парольды қайдан алу керек?</div>
@@ -59,18 +60,40 @@
 </template>
 
 <script>
+import Errors from "@/assets/js/Errors";
+import { mapActions, mapState } from 'vuex'
+
 export default {
     data() {
         return {
-            isAuth: false,
+			switcher: false,
+            loginForm: {
+                username: '',
+                password: ''
+            },
+			loading: false,
+            errors: new Errors(),
         }
     },
+	computed: {
+		...mapState([''])
+	},
     methods: {
-        auth() {
-            if (!this.isAuth) {
-                this.isAuth = true;
+		...mapActions([
+			'login'
+		]),
+        async auth() {
+            if (!this.switcher) {
+                this.switcher = true;
             } else {
-                this.$router.push('/main')
+				if(!this.loading) {
+					try {
+						await this.login(this.loginForm)
+						this.$router.push('/main')
+					} catch {
+						this.errors.set('password', 'Пароль немесе логин қате')
+					}
+				}
             }
         }
     }
@@ -126,6 +149,14 @@ export default {
                 color: #000000;
             }
 
+            &.error {
+                input {
+                    border-color: red;
+                }
+                .label {
+                    color: red;
+                }
+            }
             input {
                 background: #FFFFFF;
                 border: 1px solid #545454;

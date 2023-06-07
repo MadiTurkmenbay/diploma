@@ -1,7 +1,7 @@
 <template>
     <footer class="container">
         <div class="first">
-            <span>Univer 3.0</span>
+            <span>Campus 1.0</span>
 
             <img src="/images/SocialMedia.png" alt="SocialMedia">
         </div>

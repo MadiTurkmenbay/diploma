@@ -5,7 +5,7 @@
             <p>Campus 1.0</p>
         </div>
 
-        <lang-switcher v-if="!requiresAuth"></lang-switcher>
+        <lang-switcher v-if="!isAuth"></lang-switcher>
 
         <nav-bar v-else></nav-bar>
     </header>
@@ -23,6 +23,7 @@
 <script>
 import LangSwitcher from './LangSwitcher.vue';
 import NavBar from './NavBar.vue';
+import { mapState } from 'vuex'
 
 export default {
     components: {
@@ -30,6 +31,7 @@ export default {
         NavBar,
     },
     computed: {
+		...mapState(['isAuth']),
         requiresAuth() {
             return this.$route.meta?.requiresAuth;
         }
