@@ -21,51 +21,81 @@
             </div>
         </div>
 
-        <div class="nav_item nav_btn">
-            <span>Бакалавр</span>
-            <div class="nav-overflow"></div>
-            <div class="nav-wrapper">
-                <div class="section_one">
-                    <router-link :to="{path: 'test'}" ><span>Сауалнама жүргізу</span></router-link>
-                    <router-link :to="{name: 'profile'}" ><span>Жеке мәліметтерді</span> <span>редакциялау</span></router-link>
-                    <router-link :to="{path: 'test'}" ><span>Тәжірибе</span></router-link>
-                    <router-link :to="{path: 'test'}" ><span>Келісім-шарттар</span></router-link>
-                </div>
-                <div class="section_one">
-                    <router-link :to="{name: 'academy'}"><span>Академиялық күнтізбе</span></router-link>
-                    <router-link :to="{name: 'schedule'}"><span>Кесте</span></router-link>
-                    <router-link :to="{name: 'exams'}"><span>Емтихандар кестесі</span></router-link>
-                    <router-link :to="{path: 'test'}"><span>Midterm кестесі</span></router-link>
-                    <router-link :to="{path: 'test'}"><span>Оқу жоспары</span></router-link>
-                    <router-link :to="{path: 'test'}"><span>Аттестация</span></router-link>
-                    <router-link :to="{path: 'test'}"><span>Қатысу және үлгерім</span> <span>журналы</span></router-link>
-                </div>
-                <div class="section_one">
-                    <router-link to="/test" ><span>Эдвайзердің файлдары</span></router-link>
-                    <router-link to="/test" ><span>Жеке оқу жоспары</span></router-link>
-                    <router-link to="/test" ><span>Транскрипт</span></router-link>
-                    <router-link to="/test" ><span>Сынақ кітапшасы</span></router-link>
-                    <router-link to="/test" ><span>Студент анкетасы</span></router-link>
-                    <router-link to="/test" ><span>ПОӘК</span></router-link>
-                    <router-link to="/test" ><span>Рейтинг</span></router-link>
-                    <router-link to="/test" ><span>Бітіру жұмыстарын</span> <span>жүктеу</span></router-link>
-                </div>
-                <div class="section_one">
-                    <router-link to="/test" ><span>Тестілеу түрі</span></router-link>
-                    <router-link to="/test" ><span>Онлайн тест</span></router-link>
-                    <router-link to="/test" ><span>Қашықтықтан оқыту</span> <span>курстары</span></router-link>
-                    <router-link to="/test" ><span>Қарыз</span></router-link>
-                    <router-link to="/test" ><span>Қайта тапсыру</span></router-link>
-                    <router-link to="/test" ><span>GPA көтеру</span></router-link>
-                </div>
-            </div>
-        </div>
+		<template v-if="role === 'ROLE_STUDENT'">
+			<div class="nav_item nav_btn" >
+				<span>Бакалавр</span>
+				<div class="nav-overflow"></div>
+				<div class="nav-wrapper">
+					<div class="section_one">
+						<router-link :to="{path: 'test'}" ><span>Сауалнама жүргізу</span></router-link>
+						<router-link :to="{name: 'profile'}" ><span>Жеке мәліметтерді</span> <span>редакциялау</span></router-link>
+						<router-link :to="{path: 'test'}" ><span>Тәжірибе</span></router-link>
+						<router-link :to="{path: 'test'}" ><span>Келісім-шарттар</span></router-link>
+					</div>
+					<div class="section_one">
+						<router-link :to="{name: 'academy'}"><span>Академиялық күнтізбе</span></router-link>
+						<router-link :to="{name: 'schedule'}"><span>Кесте</span></router-link>
+						<router-link :to="{name: 'exams'}"><span>Емтихандар кестесі</span></router-link>
+						<router-link :to="{path: 'test'}"><span>Midterm кестесі</span></router-link>
+						<router-link :to="{path: 'test'}"><span>Оқу жоспары</span></router-link>
+						<router-link :to="{path: 'test'}"><span>Аттестация</span></router-link>
+						<router-link :to="{path: 'test'}"><span>Қатысу және үлгерім</span> <span>журналы</span></router-link>
+					</div>
+					<div class="section_one">
+						<router-link to="/test" ><span>Эдвайзердің файлдары</span></router-link>
+						<router-link to="/test" ><span>Жеке оқу жоспары</span></router-link>
+						<router-link to="/test" ><span>Транскрипт</span></router-link>
+						<router-link to="/test" ><span>Сынақ кітапшасы</span></router-link>
+						<router-link to="/test" ><span>Студент анкетасы</span></router-link>
+						<router-link to="/test" ><span>ПОӘК</span></router-link>
+						<router-link to="/test" ><span>Рейтинг</span></router-link>
+						<router-link to="/test" ><span>Бітіру жұмыстарын</span> <span>жүктеу</span></router-link>
+					</div>
+					<div class="section_one">
+						<router-link to="/test" ><span>Тестілеу түрі</span></router-link>
+						<router-link to="/test" ><span>Онлайн тест</span></router-link>
+						<router-link to="/test" ><span>Қашықтықтан оқыту</span> <span>курстары</span></router-link>
+						<router-link to="/test" ><span>Қарыз</span></router-link>
+						<router-link to="/test" ><span>Қайта тапсыру</span></router-link>
+						<router-link to="/test" ><span>GPA көтеру</span></router-link>
+					</div>
+				</div>
+			</div>
+			<div class="nav_item nav_btn">
+				<span>Е-қызмет</span>
+				<div class="nav-overflow"></div>
+				<div class="nav-wrapper"></div>
+			</div>
+		</template>
 
-        <div class="nav_item nav_btn">
-            <span>Е-қызмет</span>
-            <div class="nav-overflow"></div>
-            <div class="nav-wrapper"></div>
-        </div>
+		<template v-if="role === 'ROLE_TEACHER'">
+			<div class="nav_item nav_btn">
+				<span>Оқытушы</span>
+				<div class="nav-overflow"></div>
+				<div class="nav-wrapper">
+					<div class="section_one">
+						<router-link :to="{path: 'test'}" ><span>ПОӘК</span></router-link>
+						<router-link :to="{name: 'profile'}" ><span>Қатысу және үлгерім</span> <span>журналы</span></router-link>
+						<router-link :to="{path: 'test'}" ><span>Аттестация</span></router-link>
+						<router-link :to="{path: 'schedule'}" ><span>Кесте</span></router-link>
+						<router-link :to="{name: 'exams'}" ><span>Емтихандар кестесі</span></router-link>
+					</div>
+					<div class="section_one">
+						<router-link :to="{path: 'test'}"><span>Менің файлдарым</span></router-link>
+						<router-link :to="{path: 'test'}"><span>Қашықтықтан оқыту курстары</span></router-link>
+						<router-link :to="{name: 'exams'}"><span>Емтихандар кестесі</span></router-link>
+						<router-link :to="{path: 'test'}"><span>Тесттар</span></router-link>
+					</div>
+				</div>
+			</div>
+			<div class="nav_item nav_btn">
+				<span>Куратор</span>
+				<div class="nav-overflow"></div>
+				<div class="nav-wrapper">
+				</div>
+			</div>
+		</template>
+
 
         <div class="nav_item exit" @click="exit()">Шығу</div>
 
@@ -76,14 +106,24 @@
 </template>
 
 <script>
-    export default {
+    import {mapState} from "vuex";
+
+	export default {
         data() {
             return {
                 select: 'kz',
             }
         },
+		computed: {
+			...mapState(['isAuth', 'user']),
+			role() {
+				return this?.user?.roles[0].name;
+			},
+		},
         methods: {
-            exit() {
+            async exit() {
+				await this.$store.commit('removeUser')
+
                 this.$router.push('/')
             }
         }

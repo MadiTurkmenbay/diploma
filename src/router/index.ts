@@ -33,7 +33,7 @@ const router = createRouter({
             component: Schedule,
         },
         {
-            path: '/student',
+            path: '/profile',
             meta: { requiresAuth: true },
             children: [
                 {path: '', name: 'profile', component: Student},
@@ -67,12 +67,12 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-    // if (to.meta.requiresAuth && !cookies.get('user')) {
-    //     return {
-    //         path: '/',
-    //         query: { redirect: to.fullPath },
-    //     }
-    // }
+    if (to.meta.requiresAuth && !cookies.get('user')) {
+        return {
+            path: '/',
+            query: { redirect: to.fullPath },
+        }
+    }
 })
 
 

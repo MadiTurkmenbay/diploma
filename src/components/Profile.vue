@@ -2,11 +2,12 @@
     <div class="profile_top">
             <div class="left">
                 <div class="avatar_wrap">
-                    <img src="/images/default_user.png" alt="default_user">
+                    <img v-if="role === 'ROLE_TEACHER'" src="/images/default_user.png" alt="default_user">
                 </div>
                 <div class="text">
-                    <h3 class="name">Алина Ли</h3>
-                    <span class="degree">Бакалавр студенті</span>
+					<h3 v-if="role === 'ROLE_TEACHER'" class="name">Нарбаева Салтанат</h3>
+                    <h3 v-else class="name">{{ user.firstName }} {{ user.lastName}}</h3>
+                    <span class="degree">{{user.degree}}</span>
                 </div>
             </div>
             <div class="right">
@@ -19,7 +20,15 @@
 </template>
 
 <script>
+import {mapState} from "vuex";
+
 export default {
+	computed: {
+		...mapState(['isAuth', 'user']),
+		role() {
+			return this?.user?.roles[0].name;
+		},
+	},
 }
 </script>
 

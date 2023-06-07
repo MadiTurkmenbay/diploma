@@ -5,19 +5,19 @@
 
             <div class="profile_body">
                 <div class="block info">
-                    <h3>Студент туралы</h3>
+                    <h3>{{ user.degree }} туралы</h3>
 
                     <div class="inline_text">
                         <div class="img">
                             <img src="/images/person.png" alt="person">
                         </div>
-                        <span>Әйел</span>
+                        <span>{{role === 'ROLE_STUDENT' ? 'Ер' : 'Әйел'}}</span>
                     </div>
                     <div class="inline_text">
                         <div class="img">
                             <img src="/images/cake.png" alt="person">
                         </div>
-                        <span>22.06.2002</span>
+                        <span>{{ user.dateOfBirth }}</span>
                     </div>
                     <div class="inline_text">
                         <div class="img">
@@ -29,7 +29,7 @@
                         <div class="img">
                             <img src="/images/message.png" alt="person">
                         </div>
-                        <span>aliya.kaldybay@gmail.com</span>
+                        <span>{{ user.email }}</span>
                     </div>
                     <div class="inline_text">
                         <div class="img">
@@ -37,7 +37,7 @@
                         <span>№ сынақ кітапшасы: 194247</span>
                     </div>
                 </div>
-                <div class="block classmates">
+                <div class="block classmates" v-if="role === 'ROLE_STUDENT'">
                     <h3>Топтастарым</h3>
 
 
@@ -107,9 +107,17 @@
 
 <script>
 import Profile from "@/components/Profile.vue";
+import {mapState} from "vuex";
 
 export default {
-    components: {Profile}
+    components: {Profile},
+
+	computed: {
+		...mapState(['isAuth', 'user']),
+		role() {
+			return this?.user?.roles[0].name;
+		},
+	},
 }
 </script>
 
